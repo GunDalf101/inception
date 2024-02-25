@@ -1,5 +1,7 @@
 #!/bin/bash
-sleep 10
+
+sleep 5
+
 cd /var/www/wordpress
 
 wp config create --dbhost=$DB_HOST --dbname=$DB_NAME --dbuser=$DB_USER --dbpass=$DB_PASSWORD --path=/var/www/wordpress --allow-root
