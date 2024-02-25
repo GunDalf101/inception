@@ -11,7 +11,7 @@ RUN mkdir -p /etc/nginx/ssl && \
     -subj "/C=US/ST=State/L=City/O=Organization/CN=your_domain.com"
 
 COPY conf/nginx.conf /etc/nginx/conf.d
-COPY index.html /usr/share/nginx/html/index.html
+# COPY index.html /var/www/wordpress/index.html
 
 RUN mkdir -p /run/nginx
 
