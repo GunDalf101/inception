@@ -34,6 +34,17 @@ services:
       - wordpress
     ports:
       - "443:443"
+  ftp:
+    container_name: ftp
+    build: ./requirements/bonus/ftp
+    hostname: localhost
+    volumes:
+      - wordpress:/ftp
+    networks:
+      - project
+    ports:
+      - "21:21"
+      - "30000-30009:30000-30009"
 
 volumes:
   database:
@@ -42,14 +53,14 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/${USER}/data/database
+      device: /Users/mbennani/data/database
   wordpress:
     name: wordpress
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/${USER}/data/wordpress
+      device: /Users/mbennani/data/wordpress
 
 networks:
   project:
