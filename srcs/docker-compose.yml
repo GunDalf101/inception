@@ -4,6 +4,7 @@ services:
   mariadb:
     container_name: mariadb
     build: ./requirements/mariadb
+    image: mariadb:oldest
     restart: always
     env_file: .env
     volumes:
@@ -14,6 +15,7 @@ services:
   wordpress:
     container_name: wordpress
     build: ./requirements/wordpress
+    image: wordpress:oldest
     env_file: .env
     volumes:
       - wordpress:/var/www/wordpress/
@@ -25,19 +27,21 @@ services:
   nginx:
     container_name: nginx
     build: ./requirements/nginx
-    hostname: localhost
+    image: nginx:oldest
     volumes:
       - wordpress:/var/www/wordpress/
+      - adminer:/adminer
     networks:
       - project
     depends_on:
       - wordpress
     ports:
       - "443:443"
+      - "9090:9090"
   ftp:
     container_name: ftp
     build: ./requirements/bonus/ftp
-    hostname: localhost
+    image: ftp:oldest
     volumes:
       - wordpress:/ftp
     networks:
@@ -49,48 +53,53 @@ services:
   redis:
     container_name: redis
     build: ./requirements/bonus/redis
-    hostname: localhost
+    image: redis:oldest
     volumes:
-      - wordpress:/var/www/html
+      - wordpress:/var/www/wordpress
     networks:
       - project
 
-  # adminer:
-  #   container_name: adminer
-  #   build: ./requirements/bonus/adminer
-  #   hostname: localhost
-  #   volumes:
-  #     - adminer:/adminer
-  #   networks:
-  #     - project
-  #   expose:
-  #     - "9001"
-  #   depends_on:
-  #     - mariadb
+  adminer:
+    container_name: adminer
+    build: ./requirements/bonus/adminer
+    image: adminer:oldest
+    volumes:
+      - adminer:/adminer
+    networks:
+      - project
+    expose:
+      - 8081
+    depends_on:
+      - wordpress
+
+  website:
+    container_name: website
+    image: website:oldest
+    build: ./requirements/bonus/website
+    networks:
+      - project
+    ports:
+      - "9191:9191"
 
 volumes:
   database:
     name: database
-    driver: local
     driver_opts:
       type: none
       o: bind
       device: /Users/mbennani/data/database
   wordpress:
     name: wordpress
-    driver: local
     driver_opts:
       type: none
       o: bind
       device: /Users/mbennani/data/wordpress
-  # adminer:
-  #   name: adminer
-  #   driver: local
-  #   driver_opts:
-  #     type: none
-  #     device:  /home/mbennani/data/adminer
-  #     o: bind
+  adminer:
+    name: adminer
+    driver_opts:
+      type: none
+      device:  /Users/mbennani/data/adminer
+      o: bind
 
 networks:
   project:
-    driver: bridge

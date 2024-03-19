@@ -1,15 +1,15 @@
-FROM debian:buster
+FROM debian:11
 
 EXPOSE 9000
 
 RUN apt-get update && apt-get install -y \
-	php7.3-fpm \
-	php7.3-mysql \
+	php7.4-fpm \
+	php7.4-mysql \
 	mariadb-client \
 	curl && \
 	rm -rf /var/lib/apt/lists/*
 
-COPY ./config/www.conf /etc/php/7.3/fpm/pool.d
+COPY ./config/www.conf /etc/php/7.4/fpm/pool.d
 
 ADD https://wordpress.org/latest.tar.gz /var/www/latest.tar.gz
 
