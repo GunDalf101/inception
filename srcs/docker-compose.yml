@@ -46,6 +46,28 @@ services:
       - "21:21"
       - "30000-30009:30000-30009"
 
+  redis:
+    container_name: redis
+    build: ./requirements/bonus/redis
+    hostname: localhost
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - project
+
+  # adminer:
+  #   container_name: adminer
+  #   build: ./requirements/bonus/adminer
+  #   hostname: localhost
+  #   volumes:
+  #     - adminer:/adminer
+  #   networks:
+  #     - project
+  #   expose:
+  #     - "9001"
+  #   depends_on:
+  #     - mariadb
+
 volumes:
   database:
     name: database
@@ -61,6 +83,13 @@ volumes:
       type: none
       o: bind
       device: /Users/mbennani/data/wordpress
+  # adminer:
+  #   name: adminer
+  #   driver: local
+  #   driver_opts:
+  #     type: none
+  #     device:  /home/mbennani/data/adminer
+  #     o: bind
 
 networks:
   project:
