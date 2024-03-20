@@ -1,6 +1,6 @@
 Welcome to my Gopher server!
 
-0About me\t/about.txt\tlocalhost\t70
-1My projects\t/projects\tlocalhost\t70
-0Website\t/index.html\tlocalhost\t70
-hIndex Page    URL:http://localhost:9292/index.html
+1Pygopherd Home	/devel/gopher/pygopherd	gopher.quux.org	70
+1Quux.Org Mega Server	/	gopher.quux.org	70
+1The Gopher Project	/Software/Gopher	gopher.quux.org	70
+1Traditional UMN Home Gopher	/	gopher.tc.umn.edu	70
