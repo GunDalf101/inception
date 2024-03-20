@@ -1,0 +1,6 @@
+Welcome to my Gopher server!
+
+0About me\t/about.txt\tlocalhost\t70
+1My projects\t/projects\tlocalhost\t70
+0Website\t/index.html\tlocalhost\t70
+hIndex Page    URL:http://localhost:9292/index.html

@@ -2,8 +2,9 @@ FROM debian:11
 
 EXPOSE 9000
 
-RUN apt-get update && apt-get install -y \
-	php7.4-fpm \
+RUN apt-get update && apt-get install -y
+
+RUN apt-get install -y php7.4-fpm \
 	php7.4-mysql \
 	mariadb-client \
 	curl && \
@@ -21,6 +22,6 @@ RUN curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 RUN chmod +x ./usr/bin/wp
 
 RUN mkdir /run/php
-COPY ./config/wordpress.sh /var/www/wordpress/wordpress.sh
-RUN chmod +x /var/www/wordpress/wordpress.sh
-CMD ["bash", "/var/www/wordpress/wordpress.sh"]
+COPY ./config/wordpress.sh /tmp/wordpress.sh
+RUN chmod +x /tmp/wordpress.sh
+CMD ["bash", "/tmp/wordpress.sh"]

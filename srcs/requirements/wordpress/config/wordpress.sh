@@ -28,4 +28,4 @@ wp --allow-root redis enable
 
 cd -
 
-php-fpm7.4 -F
+/usr/sbin/php-fpm7.4 -F

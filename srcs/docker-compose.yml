@@ -71,6 +71,17 @@ services:
       - 8081
     depends_on:
       - wordpress
+  
+  gopher:
+    container_name: gopher
+    build: ./requirements/bonus/gopher
+    image: gopher:oldest
+    volumes:
+    - gopher:/var/gopher
+    networks:
+      - project
+    ports:
+      - "9292:9292"
 
   website:
     container_name: website
@@ -99,6 +110,13 @@ volumes:
     driver_opts:
       type: none
       device:  /Users/mbennani/data/adminer
+      o: bind
+  
+  gopher:
+    name: gopher
+    driver_opts:
+      type: none
+      device:  /Users/mbennani/data/gopher
       o: bind
 
 networks:
