@@ -22,8 +22,6 @@ wp config set WP_REDIS_PORT '6379' --type=constant --add --allow-root
 
 wp plugin install redis-cache --activate --allow-root
 
-# chown -R www-data:www-data /wordpress
-
 wp --allow-root redis enable
 
 cd -
