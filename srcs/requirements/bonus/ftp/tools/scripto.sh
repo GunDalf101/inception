@@ -1,10 +1,10 @@
 #!/bin/bash
 
-adduser kaka --disabled-password
+adduser $FTP_USER --disabled-password
 
-echo kaka:kaka | chpasswd
+echo $FTP_USER:$FTP_PASS | chpasswd
 
-chown -R kaka:kaka /ftp
+chown -R $FTP_USER:$FTP_USER /ftp
 
 mkdir empty
 
