@@ -10,7 +10,6 @@ Inception is a Docker-based system administration project that sets up a web inf
 - [Features](#features)
 - [Bonus Features](#bonus-features)
 - [Troubleshooting](#troubleshooting)
-- [License](#license)
 
 ## Overview
 
