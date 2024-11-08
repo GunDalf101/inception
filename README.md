@@ -10,29 +10,6 @@ Inception is a Docker-based system administration project that sets up a web inf
 - [Features](#features)
 - [Bonus Features](#bonus-features)
 - [Troubleshooting](#troubleshooting)
-
-## Overview
-
-The Inception project provides a hands-on introduction to system administration and containerization:
-- **Objective**: Build and manage a multi-container infrastructure with Docker Compose.
-- **Services**: NGINX for web serving and SSL, WordPress for content management, and MariaDB as a database, all configured from scratch without relying on prebuilt images.
-- **Environment**: Containers run on either Alpine or Debian to maintain a lightweight and efficient setup.
-
-## Project Structure
-
-
-# Inception
-
-Inception is a Docker-based system administration project that sets up a web infrastructure using Docker containers for NGINX, WordPress, and MariaDB. Each service runs in an isolated container, linked through a Docker network with TLS-secured access and persistent storage.
-
-## Table of Contents
-- [Overview](#overview)
-- [Project Structure](#project-structure)
-- [Setup Guide](#setup-guide)
-- [Configuration](#configuration)
-- [Features](#features)
-- [Bonus Features](#bonus-features)
-- [Troubleshooting](#troubleshooting)
 - [License](#license)
 
 ## Overview
